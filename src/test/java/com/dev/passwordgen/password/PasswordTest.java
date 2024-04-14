@@ -16,4 +16,12 @@ public class PasswordTest {
     public void testPassGen(){
         Assert.notNull(passwordService.generatePassword(), "The class must be not null");
     }
+    @Test
+    public void testValidPass(){
+        Assert.isTrue(passwordService.numberContent("senha123"), "Password must be alfanumeric");
+        Assert.isTrue(passwordService.lowercaseContent("senha"), "Password mus be one lowercase character");
+        Assert.isTrue(passwordService.uppercaseContent("Senha123"), "Password must be one uppercase character");
+        Assert.isTrue(passwordService.specialContent("$Enha123"), "Password must be one special character");
+        Assert.isTrue(passwordService.lengthContent("$Enha1234567890"), "Password must be contain 15 characters");
+    }
 }
