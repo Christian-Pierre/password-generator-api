@@ -6,19 +6,45 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
-@Table(name = "User")
-@Getter @Setter
+@Table(name = "tab_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "userId")
-    private Long id;
+    private int userId;
     @Column(name = "userName")
-    private String name;
+    private String userName;
+    @Column(name = "userPass")
+    private String userPass;
     @Column(name = "userPassAuth")
-    private String auth;
+    private String userPassAuth;
+    
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+    public String getUserName() {
+        return userName;
+    }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+    public String getUserPass() {
+        return userPass;
+    }
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+    public String getUserPassAuth() {
+        return userPassAuth;
+    }
+    public void setUserPassAuth(String userPassAuth) {
+        this.userPassAuth = userPassAuth;
+    }
+
+    
 }
