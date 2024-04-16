@@ -6,7 +6,7 @@ CREATE TABLE tab_user
  user_pass_auth VARCHAR(250)  
 ); 
 
-CREATE TABLE tab_Password 
+CREATE TABLE tab_password 
 ( 
  user_id INT NOT NULL,  
  password_origin VARCHAR(250) NOT NULL,  
@@ -14,4 +14,9 @@ CREATE TABLE tab_Password
  password_id INT PRIMARY KEY AUTO_INCREMENT
 ); 
 
-ALTER TABLE tab_Password ADD FOREIGN KEY(user_id) REFERENCES tab_user (user_id)
+ALTER TABLE tab_password ADD FOREIGN KEY(user_id) REFERENCES tab_user (user_id)
+
+INSERT INTO tab_user (user_name,user_pass,user_pass_auth) 
+VALUES("name generic", "Passgeneric*123", "passAuthGeneric");
+
+SELECT * FROM tab_user;
