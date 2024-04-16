@@ -1,6 +1,5 @@
 package com.dev.passwordgen.core.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,13 +11,9 @@ import jakarta.persistence.Table;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "userId")
     private int userId;
-    @Column(name = "userName")
     private String userName;
-    @Column(name = "userPass")
     private String userPass;
-    @Column(name = "userPassAuth")
     private String userPassAuth;
     
     public int getUserId() {
@@ -45,6 +40,4 @@ public class User {
     public void setUserPassAuth(String userPassAuth) {
         this.userPassAuth = userPassAuth;
     }
-
-    
 }
