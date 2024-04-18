@@ -17,17 +17,13 @@ import com.dev.passwordgen.core.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-    //private final UserService userService = new UserService();
-    @Autowired UserService userService;
-
-    // @PostMapping
-    // public ResponseEntity<User> addUser(@RequestBody User user){
-    //     return new ResponseEntity<User>(userService.saveUser(user), HttpStatus.CREATED);
-    // }
-    
+    @Autowired UserService userService;    
     @GetMapping
     public ResponseEntity<List<User>> getUsers(){
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
+    }
+    @PostMapping
+    public ResponseEntity<User> addUser(@RequestBody User user){
+        return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 }
