@@ -1,3 +1,4 @@
+-- Active: 1713073482879@@localhost@3306@passwordapidb
 CREATE TABLE tab_user 
 ( 
  user_id INT PRIMARY KEY AUTO_INCREMENT,  
@@ -20,3 +21,4 @@ INSERT INTO tab_user (user_name,user_pass,user_pass_auth)
 VALUES("name generic", "Passgeneric*123", "passAuthGeneric");
 
 SELECT * FROM tab_user;
+SELECT * FROM tab_password;
