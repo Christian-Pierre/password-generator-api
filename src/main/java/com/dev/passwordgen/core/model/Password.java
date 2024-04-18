@@ -1,7 +1,6 @@
 package com.dev.passwordgen.core.model;
 
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,19 +12,16 @@ import jakarta.persistence.Table;
 public class Password {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "passwordId")
-    private Long id;
-    @Column(name = "userId")
+    private Long passwordId;
     private int userId;
-    @Column(name = "passwordContents")
-    private String contents;
-    @Column(name = "passwordOrigin")
+    private String passwordContents;
     private String passwordOrigin;
-    public Long getId() {
-        return id;
+    
+    public Long getPasswordId() {
+        return passwordId;
     }
-    public void setId(Long id) {
-        this.id = id;
+    public void setPasswordId(Long passwordId) {
+        this.passwordId = passwordId;
     }
     public int getUserId() {
         return userId;
@@ -33,11 +29,11 @@ public class Password {
     public void setUserId(int userId) {
         this.userId = userId;
     }
-    public String getContents() {
-        return contents;
+    public String getPasswordContents() {
+        return passwordContents;
     }
-    public void setContents(String contents) {
-        this.contents = contents;
+    public void setPasswordContents(String passwordContents) {
+        this.passwordContents = passwordContents;
     }
     public String getPasswordOrigin() {
         return passwordOrigin;
