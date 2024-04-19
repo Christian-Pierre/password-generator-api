@@ -1,4 +1,4 @@
--- Active: 1713073482879@@localhost@3306@passwordapidb
+-- Active: 1713249654398@@localhost@3306@passwordapidb
 CREATE TABLE tab_user 
 ( 
  user_id INT PRIMARY KEY AUTO_INCREMENT,  
