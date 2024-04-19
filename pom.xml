@@ -55,6 +55,12 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.12.0</version> <!-- Replace with the latest version -->
 		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>3.12.4</version> <!-- Versão mais recente disponível -->
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
