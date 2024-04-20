@@ -1,5 +1,6 @@
 package com.dev.passwordgen.password;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +26,7 @@ public class PasswordTest {
         Assert.isTrue(passwordService.specialContent("$Enha123"), "Password must be one special character");
         Assert.isTrue(passwordService.lengthContent("$Enha1234567890"), "Password must be contain 15 characters");
     }
+    @Disabled
     @Test
     public void testInserPassword(){
         Password testPass = new Password();

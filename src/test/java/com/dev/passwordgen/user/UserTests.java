@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.util.Assert;
@@ -51,10 +52,12 @@ public class UserTests {
         when(mockUserRepository.save(newUser)).thenReturn(savedUser);
 
         // Criando uma instância de UserService com o mock
-        UserService userService = new UserService(mockUserRepository);
+        //UserService userService = new UserService(mockUserRepository);
+        
+        UserService uService = new UserService(mockUserRepository);
 
         // Chamando o método createUser() e verificando o resultado
-        User createdUser = userService.saveUser(newUser);
+        User createdUser = uService.saveUser(newUser);
 
         assertEquals(savedUser.getUserId(), createdUser.getUserId());
         assertEquals(savedUser.getUserName(), createdUser.getUserName());
