@@ -11,15 +11,15 @@ import jakarta.persistence.Table;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int userId;
+    private Long userId;
     private String userName;
     private String userPass;
     private String userPassAuth;
     
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
     public String getUserName() {
