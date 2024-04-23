@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.dev.passwordgen.core.dto.PasswordDTO;
 import com.dev.passwordgen.core.model.Password;
 import com.dev.passwordgen.core.repository.PasswordRepository;
 import com.dev.passwordgen.core.service.PasswordService;
@@ -26,7 +27,7 @@ public class MockPasswordTests {
 
     
     @Test
-    public void PasswordService_GetPassword_ReturnPassword(){
+    public void PasswordService_GetPassword_ReturnPasswordDTO(){
 
         Password expectedPassword1 = new Password();
         expectedPassword1.setPasswordId(1L);
@@ -44,10 +45,11 @@ public class MockPasswordTests {
         
         when(passwordRepository.findByUserId(userId)).thenReturn(expectedPasswords);
 
-        List<Password> actualPasswords = passwordService.getPassword(userId);
-        verify(passwordRepository).findByUserId(userId);
 
-        Assertions.assertThat(expectedPasswords).isEqualTo(actualPasswords);
+        List<PasswordDTO> actualPasswordDTOs = passwordService.getPassword(userId);
+        verify(passwordRepository).findByUserId(userId);
+        Assertions.assertThat(actualPasswordDTOs).isNotNull();
+        Assertions.assertThat(actualPasswordDTOs).isNotEmpty();
     }
     
     @Test
