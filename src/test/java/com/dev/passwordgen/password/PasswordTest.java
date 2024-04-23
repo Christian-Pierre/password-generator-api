@@ -30,13 +30,13 @@ public class PasswordTest {
     @Test
     public void testInserPassword(){
         Password testPass = new Password();
-        testPass.setUserId(1);
+        testPass.setUserId(1L);
         testPass.setPasswordOrigin("Password of System Origin (Test)");
         testPass.setPasswordContents("Hw*8119900403121999");
         Assert.notNull(passwordService.savePassword(testPass), "Password object must be not null");
     }
     @Test 
     public void testGetPassword(){
-        Assert.notNull(passwordService.getPassword(1), "Password object must be exists");
+        Assert.notNull(passwordService.getPassword(1L), "Password object must be exists");
     }
 }

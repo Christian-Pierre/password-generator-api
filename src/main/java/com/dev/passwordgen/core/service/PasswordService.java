@@ -59,7 +59,7 @@ public class PasswordService {
     }
 
     //repository functions
-    public List<Password> getPassword(int userId){
+    public List<Password> getPassword(Long userId){
         return repository.findByUserId(userId);
     }
 

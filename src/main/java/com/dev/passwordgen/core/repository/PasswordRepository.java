@@ -9,5 +9,5 @@ import com.dev.passwordgen.core.model.Password;
 
 @Repository
 public interface PasswordRepository extends JpaRepository<Password , Long>{
-    List<Password> findByUserId(int userId);
+    List<Password> findByUserId(Long userId);
 }

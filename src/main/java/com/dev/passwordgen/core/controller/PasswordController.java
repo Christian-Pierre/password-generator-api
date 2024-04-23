@@ -22,7 +22,7 @@ public class PasswordController {
     @Autowired private PasswordService service;
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Password>> getPassword(@PathVariable int userId){
+    public ResponseEntity<List<Password>> getPassword(@PathVariable Long userId){
         return new ResponseEntity<>(service.getPassword(userId), HttpStatus.OK);
     }
     @GetMapping("/generate")

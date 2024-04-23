@@ -13,20 +13,19 @@ public class Password {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long passwordId;
-    private int userId;
+    private Long userId;
     private String passwordContents;
     private String passwordOrigin;
-    
     public Long getPasswordId() {
         return passwordId;
     }
     public void setPasswordId(Long passwordId) {
         this.passwordId = passwordId;
     }
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
     public String getPasswordContents() {
@@ -41,5 +40,6 @@ public class Password {
     public void setPasswordOrigin(String passwordOrigin) {
         this.passwordOrigin = passwordOrigin;
     }
+    
     
 }
