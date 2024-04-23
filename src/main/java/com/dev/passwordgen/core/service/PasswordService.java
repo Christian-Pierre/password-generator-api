@@ -1,12 +1,14 @@
 package com.dev.passwordgen.core.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.dev.passwordgen.core.dto.PasswordGeneratedDto;
+import com.dev.passwordgen.core.dto.PasswordDTO;
+import com.dev.passwordgen.core.dto.PasswordGeneratedDTO;
 import com.dev.passwordgen.core.model.Password;
 import com.dev.passwordgen.core.repository.PasswordRepository;
 
@@ -14,8 +16,8 @@ import com.dev.passwordgen.core.repository.PasswordRepository;
 public class PasswordService {
     @Autowired private PasswordRepository repository;
     
-    public PasswordGeneratedDto generatePassword(){
-        PasswordGeneratedDto passwordDto = new PasswordGeneratedDto();
+    public PasswordGeneratedDTO generatePassword(){
+        PasswordGeneratedDTO passwordDto = new PasswordGeneratedDTO();
         passwordDto.setPassword(RandomStringUtils.randomAlphanumeric(10));
         return passwordDto;
     }
@@ -59,8 +61,15 @@ public class PasswordService {
     }
 
     //repository functions
-    public List<Password> getPassword(Long userId){
-        return repository.findByUserId(userId);
+    public List<PasswordDTO> getPassword(Long userId){
+
+        List<Password> actualPasswords = repository.findByUserId(userId);
+
+        List<PasswordDTO> passwordDTOList = actualPasswords.stream().map(
+            password -> new PasswordDTO(password.getPasswordOrigin(), password.getPasswordContents())
+            ).collect(Collectors.toList());
+
+        return passwordDTOList;
     }
 
     public Password savePassword(Password password){

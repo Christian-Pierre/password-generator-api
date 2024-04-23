@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.passwordgen.core.dto.PasswordGeneratedDto;
+import com.dev.passwordgen.core.dto.PasswordDTO;
+import com.dev.passwordgen.core.dto.PasswordGeneratedDTO;
 import com.dev.passwordgen.core.model.Password;
 import com.dev.passwordgen.core.service.PasswordService;
 
@@ -22,11 +23,11 @@ public class PasswordController {
     @Autowired private PasswordService service;
 
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Password>> getPassword(@PathVariable Long userId){
+    public ResponseEntity<List<PasswordDTO>> getPassword(@PathVariable Long userId){
         return new ResponseEntity<>(service.getPassword(userId), HttpStatus.OK);
     }
     @GetMapping("/generate")
-    public ResponseEntity<PasswordGeneratedDto> generatePassword(){
+    public ResponseEntity<PasswordGeneratedDTO> generatePassword(){
         return new ResponseEntity<>(service.generatePassword(), HttpStatus.OK);
     }
     @PostMapping
