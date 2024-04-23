@@ -22,7 +22,7 @@ import com.dev.passwordgen.core.service.UserService;
 @ExtendWith(MockitoExtension.class)
 public class MockUserServiceTests {
     @Mock private UserRepository userRepository;
-    @InjectMocks UserService userService;
+    @InjectMocks private UserService userService;
 
     @Test
     public void UserService_CreateUser_ReturnsUser(){
