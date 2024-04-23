@@ -1,6 +1,6 @@
 package com.dev.passwordgen.core.dto;
 
-public class PasswordGeneratedDto {
+public class PasswordGeneratedDTO {
     private String password;
     public String getPassword() {
         return password;
