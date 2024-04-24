@@ -15,23 +15,25 @@ import org.springframework.web.bind.annotation.RestController;
 import com.dev.passwordgen.core.dto.PasswordDTO;
 import com.dev.passwordgen.core.dto.PasswordGeneratedDTO;
 import com.dev.passwordgen.core.model.Password;
+import com.dev.passwordgen.core.service.GenerateRulesService;
 import com.dev.passwordgen.core.service.PasswordService;
 
 @RestController
 @RequestMapping("/password")
 public class PasswordController {
-    @Autowired private PasswordService service;
+    @Autowired private PasswordService passwordService;
+    @Autowired private GenerateRulesService generateRulesService;
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<PasswordDTO>> getPassword(@PathVariable Long userId){
-        return new ResponseEntity<>(service.getPassword(userId), HttpStatus.OK);
+        return new ResponseEntity<>(passwordService.getPassword(userId), HttpStatus.OK);
     }
     @GetMapping("/generate")
     public ResponseEntity<PasswordGeneratedDTO> generatePassword(){
-        return new ResponseEntity<>(service.generatePassword(), HttpStatus.OK);
+        return new ResponseEntity<>(generateRulesService.generatePassword(), HttpStatus.OK);
     }
     @PostMapping
     public ResponseEntity<Password> addPassword(@RequestBody Password password){
-        return new ResponseEntity<>(service.savePassword(password), HttpStatus.CREATED);
+        return new ResponseEntity<>(passwordService.savePassword(password), HttpStatus.CREATED);
     }
 }
