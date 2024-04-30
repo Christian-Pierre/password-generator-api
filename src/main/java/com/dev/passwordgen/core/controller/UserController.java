@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dev.passwordgen.core.model.User;
+import com.dev.passwordgen.core.model.Account;
 import com.dev.passwordgen.core.service.UserService;
 
 @RestController
@@ -19,11 +19,11 @@ import com.dev.passwordgen.core.service.UserService;
 public class UserController {
     @Autowired UserService userService;    
     @GetMapping
-    public ResponseEntity<List<User>> getUsers(){
+    public ResponseEntity<List<Account>> getUsers(){
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
     @PostMapping
-    public ResponseEntity<User> addUser(@RequestBody User user){
+    public ResponseEntity<Account> addUser(@RequestBody Account user){
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 }

@@ -19,7 +19,7 @@ public class PasswordService {
         List<Password> actualPasswords = repository.findByUserId(userId);
 
         List<PasswordDTO> passwordDTOList = actualPasswords.stream().map(
-            password -> new PasswordDTO(password.getPasswordOrigin(), password.getPasswordContents())
+            password -> new PasswordDTO(password.getSystemOrigin(), password.getSystemLogin(), password.getSystemPassword())
             ).collect(Collectors.toList());
 
         return passwordDTOList;

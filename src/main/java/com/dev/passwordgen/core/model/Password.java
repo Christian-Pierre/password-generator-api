@@ -8,19 +8,21 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tab_password")
+@Table(name = "tab_system_password")
 public class Password {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long passwordId;
+    private Long id;
     private Long userId;
-    private String passwordContents;
-    private String passwordOrigin;
-    public Long getPasswordId() {
-        return passwordId;
+    private String systemOrigin;
+    private String systemLogin;
+    private String systemPassword;
+
+    public Long getId() {
+        return id;
     }
-    public void setPasswordId(Long passwordId) {
-        this.passwordId = passwordId;
+    public void setId(Long id) {
+        this.id = id;
     }
     public Long getUserId() {
         return userId;
@@ -28,18 +30,23 @@ public class Password {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
-    public String getPasswordContents() {
-        return passwordContents;
+    public String getSystemOrigin() {
+        return systemOrigin;
     }
-    public void setPasswordContents(String passwordContents) {
-        this.passwordContents = passwordContents;
+    public void setSystemOrigin(String systemOrigin) {
+        this.systemOrigin = systemOrigin;
     }
-    public String getPasswordOrigin() {
-        return passwordOrigin;
+    public String getSystemLogin() {
+        return systemLogin;
     }
-    public void setPasswordOrigin(String passwordOrigin) {
-        this.passwordOrigin = passwordOrigin;
+    public void setSystemLogin(String systemLogin) {
+        this.systemLogin = systemLogin;
     }
-    
+    public String getSystemPassword() {
+        return systemPassword;
+    }
+    public void setSystemPassword(String systemPassword) {
+        this.systemPassword = systemPassword;
+    }
     
 }

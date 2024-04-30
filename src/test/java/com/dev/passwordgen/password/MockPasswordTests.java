@@ -30,16 +30,19 @@ public class MockPasswordTests {
     public void PasswordService_GetPassword_ReturnPasswordDTO(){
 
         Password expectedPassword1 = new Password();
-        expectedPassword1.setPasswordId(1L);
+        expectedPassword1.setId(1L);
         expectedPassword1.setUserId(this.userId);
-        expectedPassword1.setPasswordContents("XyZ123abc789");
-        expectedPassword1.setPasswordOrigin("Mock Tests");
+        expectedPassword1.setSystemOrigin("Mock Tests");
+        expectedPassword1.setSystemLogin("mock@email.com");
+        expectedPassword1.setSystemPassword("XyZ123abc789");
+        
 
         Password expectedPassword2 = new Password();
-        expectedPassword2.setPasswordId(1L);
+        expectedPassword2.setId(1L);
         expectedPassword2.setUserId(userId);
-        expectedPassword2.setPasswordContents("HYc845sad321");
-        expectedPassword2.setPasswordOrigin("Mock Tests");
+        expectedPassword2.setSystemOrigin("Mock Tests");
+        expectedPassword2.setSystemLogin("mock@email");
+        expectedPassword2.setSystemPassword("HYc845sad321");
 
         List<Password> expectedPasswords = Arrays.asList(expectedPassword1,expectedPassword2);
         
@@ -57,8 +60,10 @@ public class MockPasswordTests {
         Password newPassword = new Password();
 
         newPassword.setUserId(this.userId);
-        newPassword.setPasswordContents("XyZ123abc789");
-        newPassword.setPasswordOrigin("Mock Create Test");
+        newPassword.setSystemOrigin("Mock Create Test");
+        newPassword.setSystemLogin("newmock@email.com");
+        newPassword.setSystemPassword("XyZ123abc789");
+        
 
         when(passwordRepository.save(Mockito.any(Password.class))).thenReturn(newPassword);
 

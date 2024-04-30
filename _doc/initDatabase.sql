@@ -1,24 +1,24 @@
 -- Active: 1713249654398@@localhost@3306@passwordapidb
-CREATE TABLE tab_user 
+CREATE TABLE tab_account
 ( 
- user_id INT PRIMARY KEY AUTO_INCREMENT,  
+ id INT PRIMARY KEY AUTO_INCREMENT,  
  user_name VARCHAR(250) NOT NULL,  
  user_pass VARCHAR(250) NOT NULL,  
  user_pass_auth VARCHAR(250)  
 ); 
-
-CREATE TABLE tab_password 
+CREATE TABLE tab_system_password 
 ( 
+ id INT PRIMARY KEY AUTO_INCREMENT,
  user_id INT NOT NULL,  
- password_origin VARCHAR(250) NOT NULL,  
- password_contents VARCHAR(250) NOT NULL,  
- password_id INT PRIMARY KEY AUTO_INCREMENT
+ system_origin VARCHAR(250) NOT NULL,  
+ system_login VARCHAR(250) NOT NULL,  
+ system_password VARCHAR(250) NOT NULL
 ); 
 
-ALTER TABLE tab_password ADD FOREIGN KEY(user_id) REFERENCES tab_user (user_id)
+ALTER TABLE tab_system_password ADD FOREIGN KEY(user_id) REFERENCES tab_account (id)
 
-INSERT INTO tab_user (user_name,user_pass,user_pass_auth) 
-VALUES("name generic", "Passgeneric*123", "passAuthGeneric");
+INSERT INTO tab_account (user_name,user_pass,user_pass_auth) 
+VALUES("name generic", "Passgeneric*123", "75159535");
 
-SELECT * FROM tab_user;
-SELECT * FROM tab_password;
+SELECT * FROM tab_account;
+SELECT * FROM tab_system_password;
