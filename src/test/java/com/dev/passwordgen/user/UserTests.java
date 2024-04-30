@@ -10,7 +10,7 @@ import com.dev.passwordgen.core.service.UserService;
 @SpringBootTest
 public class UserTests {
     @Autowired UserService userService;
-
+    
     @Test
     public void testUser(){
         Assert.notNull(userService.getUsers(), "Object list must be not null");
